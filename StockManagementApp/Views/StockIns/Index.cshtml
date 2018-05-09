@@ -1,28 +1,40 @@
 ﻿@model IEnumerable<StockManagement.Models.EntityModels.StockIn>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "StockIn List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>StockIn List</h2>
 
 <p>
     @Html.ActionLink("Create New", "Create")
 </p>
-<table class="table">
+<table class="table table-bordered">
     <tr>
+        <th>
+            SL
+        </th>
         <th>
             @Html.DisplayNameFor(model => model.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.StockDate)
         </th>
-        <th></th>
+        <th>
+            @Html.DisplayName("Action")
+        </th>
     </tr>
-
-@foreach (var item in Model) {
+    @{
+        var sl = 0;
+    }
+@foreach (var item in Model)
+{
+    sl++;
     <tr>
+        <td>
+            @sl
+        </td>
         <td>
             @Html.DisplayFor(modelItem => item.Description)
         </td>
@@ -30,9 +42,9 @@
             @Html.DisplayFor(modelItem => item.StockDate)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
-            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.Id })
+            @Html.ActionLink("Edit", "Edit", new {id = item.Id}) |
+            @Html.ActionLink("Details", "Details", new {id = item.Id}) |
+            @Html.ActionLink("Delete", "Delete", new {id = item.Id})
         </td>
     </tr>
 }
