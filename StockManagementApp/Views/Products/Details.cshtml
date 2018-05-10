@@ -5,11 +5,11 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Product Details</h2>
+<h2 class="wow fadeInDown">Product Details</h2>
 
-<div>
+<div class="wow fadeInDown">
     <hr />
-    <dl class="dl-horizontal">
+    <dl class="dl-horizontal wow fadeInDown">
         <dt>
             @Html.DisplayNameFor(model => model.Category.Name)
         </dt>
@@ -36,7 +36,7 @@
 
     </dl>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
-    @Html.ActionLink("Back to List", "Index")
+<p class="wow fadeInDown">
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new {@class="btn btn-warning"})
+    @Html.ActionLink("Back to List", "Index",null,new {@class="btn btn-info"})
 </p>
