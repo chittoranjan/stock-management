@@ -5,15 +5,17 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Delete Category</h2>
+<h2 class="wow fadeInDown">Delete Category</h2>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>Category</h4>
-    <hr />
-    <dl class="dl-horizontal">
+<h3 class="wow fadeInDown text-danger">Are you sure you want to delete this?</h3>
+<div class="wow fadeInDown">
+    <div class="wow fadeInDown">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+    </div>
+    <hr/>
+    <dl class="dl-horizontal wow fadeInDown">
         <dt>
-            @Html.DisplayNameFor(model => model.Name)
+            @Html.DisplayNameFor(model => model.Name) :
         </dt>
 
         <dd>
@@ -21,7 +23,7 @@
         </dd>
 
         <dt>
-            @Html.DisplayNameFor(model => model.Code)
+            @Html.DisplayNameFor(model => model.Code) :
         </dt>
 
         <dd>
@@ -30,12 +32,12 @@
 
     </dl>
 
-    @using (Html.BeginForm()) {
+    @using (Html.BeginForm())
+    {
         @Html.AntiForgeryToken()
 
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+        <div class="form-actions no-color wow fadeInDown">
+            <input type="submit" value="Delete" class="btn btn-danger"/>
         </div>
     }
 </div>

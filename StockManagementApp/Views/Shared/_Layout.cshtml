@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Runtime.Remoting
+<!DOCTYPE html>
 <html lang="en" class="no-js">
 <head>
     <meta charset="utf-8">
@@ -33,6 +34,7 @@
         <script src="~/js/vendor/html5shim.js"></script>
         <script src="~/js/vendor/respond.min.js"></script>
     <![endif]-->
+    @RenderSection("styles", required: false)
 </head>
 
 <body>
@@ -51,20 +53,20 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <!-- offcanvas-trigger-effects -->
-                                    <h1 class="logo"><a class="navbar-brand" href="index.html"><img src="img/logo.png" alt=""></a></h1>
+                                    <h1 class="logo"><a class="navbar-brand" href="#index.html"><img src="img/logo.png" alt=""></a></h1>
                                 </div>
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse navbar-collapse">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "" })@*<a href="index.html">Home</a>*@</li>
+                                        <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "" })</li>
                                         <li class="dropdown">
                                             <a href="#">Category <b class="caret"></b></a>
                                             <!-- submenu-wrapper -->
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Create Category","Create","Categories",null, new {@class="active"})@*<a href="about-us.html">About Us</a>*@</li>
-                                                        <li>@Html.ActionLink("Create List", "Index", "Categories", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Create Category","Create","Categories",null, new {@class="active"})</li>
+                                                        <li>@Html.ActionLink("Category List", "Index", "Categories", null, new { @class = "active" })</li>
                                                     </ul>
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
@@ -76,42 +78,42 @@
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
                                                         <li>@Html.ActionLink("Create Product", "Create", "Products", null, new { @class = "active" })</li>
-                                                        <li>@Html.ActionLink("Create List", "Index", "Products", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Product List", "Index", "Products", null, new { @class = "active" })</li>
                                                     </ul>
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#">Stock In<b class="caret"></b></a>
+                                            <a href="#">StockIn<b class="caret"></b></a>
                                             <!-- submenu-wrapper -->
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Create Stock", "Create", "StockIns", null, new { @class = "active" })</li>
-                                                        <li>@Html.ActionLink("Create List", "Index", "StockIns", null, new {@class = "active"})</li>
-                                                        <li>@Html.ActionLink("Create Stock In Detail", "Create", "StockInDetails", null, new { @class = "active" })</li>
-                                                        <li>@Html.ActionLink("Create Stock List", "Index", "StockInDetails", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Create StockIn", "Create", "StockIns", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("StockIn List", "Index", "StockIns", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("Create StockInDetails", "Create", "StockInDetails", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("StockInDetails List", "Index", "StockInDetails", null, new { @class = "active" })</li>
                                                     </ul>
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
                                         </li>
 
                                         <li class="dropdown">
-                                            <a href="#">Stock Out <b class="caret"></b></a>
+                                            <a href="#">StockOut <b class="caret"></b></a>
                                             <!-- submenu-wrapper -->
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Create stock", "Create", "StockOuts", null, new {@class = "active"})</li>
-                                                        <li>@Html.ActionLink("Create List", "Index", "StockOuts", null, new {@class = "active"})</li>
-                                                        <li>@Html.ActionLink("Create Stock Out Details ", "Create", "StockOutDetails", null, new {@class = "active"})</li>
-                                                        <li>@Html.ActionLink("Stock Out Details List", "Index", "StockOutDetails", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("Create StockOut", "Create", "StockOuts", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("StockOut List", "Index", "StockOuts", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("Create StockOutDetails ", "Create", "StockOutDetails", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("StockOutDetails List", "Index", "StockOutDetails", null, new {@class = "active"})</li>
                                                     </ul>
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
                                         </li>
                                         <li class="dropdown">
-                                            <a href="#">Inventori <b class="caret"></b></a>
+                                            <a href="#">Inventory <b class="caret"></b></a>
                                             <!-- submenu-wrapper -->
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
@@ -143,8 +145,8 @@
                                 <div class="container">
                                     <div class="carousel-caption">
                                         <small class="animated fadeIn">CALL US TODAY</small>
-                                        <div class="phone animated lightSpeedIn">1-800-1234-567</div>
-                                        <h1 class="animated lightSpeedIn">Title of Your Product <br>Service or Event</h1>
+                                        <div class="phone animated lightSpeedIn">+88-01714-863-917</div>
+                                        <h1 class="animated lightSpeedIn">WelCome To Stock Managemant System <br>Service or Event</h1>
                                         <p class="lead animated lightSpeedIn">
                                             It's a tag line, where you can write a key point of your idea.
                                             It is a long
@@ -162,7 +164,7 @@
                                 <!--Slide Image-->
                                 <div class="container">
                                     <div class="carousel-caption">
-                                        <h1 class="animated bounceIn">Title of Your Product <br>Service or Event</h1>
+                                        <h1 class="animated bounceIn">Stock Managemant System <br>Service or Event</h1>
                                         <p class="lead animated bounceIn">
                                             It's a tag line, where you can write a key point of your idea. It
                                             is a long
@@ -436,7 +438,7 @@
                                                 <li>Uniquely expedite sticky e-markets via orthogonal</li>
                                                 <li>Professionally strategize orthogonal core competency</li>
                                             </ul>
-                                            <a class="btn btn-primary" href="portfolio-single.html" role="button">Read More</a>
+                                            <a class="btn btn-primary" href="#portfolio-single.html" role="button">Read More</a>
                                         </div><!-- /.handover-project -->
                                     </div><!-- /.col-md-6 -->
                                 </div><!-- /.row -->
@@ -675,46 +677,46 @@
                         <li>
                             <a href="#">Home</a>
                             <ul>
-                                <li class="active"><a href="index.html"><i class="fa fa-home"></i> Home Style One</a></li>
+                                <li class="active"><a href="#index.html"><i class="fa fa-home"></i> Home Style One</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">About</a>
                             <ul>
-                                <li><a href="about-us.html"><i class="fa fa-life-ring"></i> About Us</a></li>
-                                <li><a href="about-me.html"><i class="fa fa-user"></i> About me</a></li>
+                                <li><a href="#about-us.html"><i class="fa fa-life-ring"></i> About Us</a></li>
+                                <li><a href="#about-me.html"><i class="fa fa-user"></i> About me</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Blog</a>
                             <ul>
-                                <li><a href="blog.html"><i class="fa fa-pencil-square-o"></i> Standard Blog</a></li>
-                                <li><a href="blog-single.html"><i class="fa fa-pencil"></i> Single Article</a></li>
+                                <li><a href="#blog.html"><i class="fa fa-pencil-square-o"></i> Standard Blog</a></li>
+                                <li><a href="#blog-single.html"><i class="fa fa-pencil"></i> Single Article</a></li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Portfolio</a>
                             <ul>
-                                <li><a href="portfolio-four.html"><i class="fa fa-picture-o"></i> Four Column</a></li>
-                                <li><a href="portfolio-three.html"><i class="fa fa-paper-plane-o"></i> Three Column</a></li>
-                                <li><a href="portfolio-two.html"><i class="fa fa-magic"></i> Two Column</a></li>
+                                <li><a href="#portfolio-four.html"><i class="fa fa-picture-o"></i> Four Column</a></li>
+                                <li><a href="#portfolio-three.html"><i class="fa fa-paper-plane-o"></i> Three Column</a></li>
+                                <li><a href="#portfolio-two.html"><i class="fa fa-magic"></i> Two Column</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="#">Pages</a>
                             <ul>
-                                <li><a href="job-page.html"><i class="fa fa-briefcase"></i> Job Page</a></li>
-                                <li><a href="clients-page.html"><i class="fa fa-coffee"></i> Clients Page</a></li>
-                                <li><a href="faq.html"><i class="fa fa-question-circle"></i> FAQ Page</a></li>
-                                <li><a href="typography.html"><i class="fa fa-puzzle-piece"></i> Typography Page</a></li>
+                                <li><a href="#job-page.html"><i class="fa fa-briefcase"></i> Job Page</a></li>
+                                <li><a href="#clients-page.html"><i class="fa fa-coffee"></i> Clients Page</a></li>
+                                <li><a href="#faq.html"><i class="fa fa-question-circle"></i> FAQ Page</a></li>
+                                <li><a href="#typography.html"><i class="fa fa-puzzle-piece"></i> Typography Page</a></li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="#">Contact</a>
                             <ul>
-                                <li><a href="contact.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
+                                <li><a href="#contact.html"><i class="fa fa-envelope-o"></i> Contact</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -751,5 +753,7 @@
     <script src="~/js/jquery.shuffle.min.js"></script>
     <!-- Custom Script -->
     <script src="~/js/scripts.js"></script>
+
+    @RenderSection("scripts", required: false)
 </body>
 </html>
