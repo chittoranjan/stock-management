@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace StockManagement.Models.EntityModels
 {
@@ -6,13 +7,13 @@ namespace StockManagement.Models.EntityModels
     {
         public int Id { get; set; }
 
-        [Display(Name = "Product Name")]
+        [DisplayName("Product Name")]
         public string Name { get; set; }
 
-        [Display(Name = "Product Code")]
+        [DisplayName("Product Code")]
         public string Code { get; set; }
 
-        [Display(Name = "Category Name")]
+        [DisplayName("Category Name")]
         public int CategoryId { get; set; }
         
         public Category Category { get; set; }

@@ -1,21 +1,24 @@
-﻿@model StockManagement.Models.EntityModels.StockOut
+﻿@using System.Activities.Expressions
+@model StockManagement.Models.EntityModels.StockOut
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Create StockOut";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Create</h2>
+<h2 class="wow fadeInDown">Create StockOut</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
-    
+    <div class="wow fadeInDown">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+    </div>
+
     <div class="form-horizontal">
-        <h4>StockOut</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "form-control" } })
@@ -23,22 +26,20 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             @Html.LabelFor(model => model.StockOutDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.StockOutDate, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.EditorFor(model => model.StockOutDate, new { htmlAttributes = new { @class = "form-control", @type = "date" } })
                 @Html.ValidationMessageFor(model => model.StockOutDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="Create" class="btn btn-warning" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

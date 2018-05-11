@@ -1,23 +1,25 @@
 ﻿@model StockManagement.Models.EntityModels.StockOutDetail
 
 @{
-    ViewBag.Title = "Edit";
+    ViewBag.Title = "Edit StockOutDetail";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Edit</h2>
+<h2 class="wow fadeInDown">Edit StockOutDetail</h2>
 
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>StockOutDetail</h4>
+    <div class="wow fadeInDown">
+        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+    </div>
+
+    <div class="form-horizontal wow fadeInDown">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         @Html.HiddenFor(model => model.Id)
 
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             @Html.LabelFor(model => model.StockOutId, "StockOutId", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("StockOutId", null, htmlAttributes: new { @class = "form-control" })
@@ -25,15 +27,15 @@
             </div>
         </div>
 
-        <div class="form-group">
-            @Html.LabelFor(model => model.ProductId, "ProductId", htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="form-group wow fadeInDown">
+            @Html.LabelFor(model => model.ProductId, "Product Name", htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.DropDownList("ProductId", null, htmlAttributes: new { @class = "form-control" })
                 @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
@@ -41,14 +43,12 @@
             </div>
         </div>
 
-        <div class="form-group">
+        <div class="form-group wow fadeInDown">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Save" class="btn btn-default" />
+                <input type="submit" value="Update" class="btn btn-warning" />
             </div>
         </div>
     </div>
 }
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>
+

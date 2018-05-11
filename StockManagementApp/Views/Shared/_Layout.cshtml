@@ -53,12 +53,12 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <!-- offcanvas-trigger-effects -->
-                                    <h1 class="logo"><a class="navbar-brand" href="#index.html"><img src="img/logo.png" alt=""></a></h1>
+                                    <h1 class="logo"><a class="navbar-brand" href="#index.html"><img src="~/img/logo.png" alt=""></a></h1>
                                 </div>
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse navbar-collapse">
                                     <ul class="nav navbar-nav navbar-right">
-                                        <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "" })</li>
+                                        <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "active" })</li>
                                         <li class="dropdown">
                                             <a href="#">Category <b class="caret"></b></a>
                                             <!-- submenu-wrapper -->
@@ -118,13 +118,14 @@
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Create Inventory", "Create", "Inventories", null, new { @class = "active" })</li>
-                                                        <li>@Html.ActionLink("Inventory List", "Index", "Inventories", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Create Inventory", "Create", "Inventories", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("Inventory List", "Index", "Inventories", null, new {@class = "active"})</li>
                                                     </ul>
-                                                   
+
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
                                         </li>
+                                        <li class="">@Html.ActionLink("About Devloper", "About", "Home", null, new { @class = "active" })</li>
                                      </ul>
                                 </div><!-- /.navbar-collapse -->
                             </div><!-- /.container -->
@@ -677,39 +678,41 @@
                         <li>
                             <a href="#">Home</a>
                             <ul>
-                                <li class="active"><a href="#index.html"><i class="fa fa-home"></i> Home Style One</a></li>
+                                <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "fa fa-home" })</li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">About</a>
+                            <a href="#">Product</a>
                             <ul>
-                                <li><a href="#about-us.html"><i class="fa fa-life-ring"></i> About Us</a></li>
-                                <li><a href="#about-me.html"><i class="fa fa-user"></i> About me</a></li>
+                                <li>@Html.ActionLink("Create Product", "Create", "Products", null, new { @class = "fa fa-life-ring" })</li>
+                                <li>@Html.ActionLink("Product List", "Index", "Products", null, new { @class = "fa fa-user" })</li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Blog</a>
+                            <a href="#">StockIn</a>
                             <ul>
-                                <li><a href="#blog.html"><i class="fa fa-pencil-square-o"></i> Standard Blog</a></li>
-                                <li><a href="#blog-single.html"><i class="fa fa-pencil"></i> Single Article</a></li>
+                                <li>@Html.ActionLink("Create StockIn", "Create", "StockIns", null, new { @class = "fa fa-pencil-square-o" })</li>
+                                <li>@Html.ActionLink("StockIn List", "Index", "StockIns", null, new { @class = "fa fa-pencil" })</li>
+                                <li>@Html.ActionLink("Create StockInDetails", "Create", "StockInDetails", null, new { @class = "fa fa-pencil-square-o" })</li>
+                                <li>@Html.ActionLink("StockInDetails List", "Index", "StockInDetails", null, new { @class = "fa fa-puzzle-piece" })</li>
                             </ul>
                         </li>
                         <li>
-                            <a href="#">Portfolio</a>
+                            <a href="#">StockOut</a>
                             <ul>
-                                <li><a href="#portfolio-four.html"><i class="fa fa-picture-o"></i> Four Column</a></li>
-                                <li><a href="#portfolio-three.html"><i class="fa fa-paper-plane-o"></i> Three Column</a></li>
-                                <li><a href="#portfolio-two.html"><i class="fa fa-magic"></i> Two Column</a></li>
+                                <li>@Html.ActionLink("Create StockOut", "Create", "StockOuts", null, new { @class = "fa fa-picture-o" })</li>
+                                <li>@Html.ActionLink("StockOut List", "Index", "StockOuts", null, new { @class = "fa fa-paper-plane-o" })</li>
+                                <li>@Html.ActionLink("Create StockOutDetails ", "Create", "StockOutDetails", null, new { @class = "fa fa-magic" })</li>
+                                <li>@Html.ActionLink("StockOutDetails List", "Index", "StockOutDetails", null, new { @class = "fa fa-magic" })</li>
                             </ul>
                         </li>
 
                         <li>
-                            <a href="#">Pages</a>
+                            <a href="#">Inventory</a>
                             <ul>
-                                <li><a href="#job-page.html"><i class="fa fa-briefcase"></i> Job Page</a></li>
-                                <li><a href="#clients-page.html"><i class="fa fa-coffee"></i> Clients Page</a></li>
-                                <li><a href="#faq.html"><i class="fa fa-question-circle"></i> FAQ Page</a></li>
-                                <li><a href="#typography.html"><i class="fa fa-puzzle-piece"></i> Typography Page</a></li>
+                                <li>@Html.ActionLink("Create Inventory", "Create", "Inventories", null, new { @class = "fa fa-briefcase" })</li>
+                                <li>@Html.ActionLink("Inventory List", "Index", "Inventories", null, new { @class = "fa fa-coffee" })</li>
+                                
                             </ul>
                         </li>
 
