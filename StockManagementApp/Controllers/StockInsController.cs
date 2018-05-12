@@ -8,6 +8,7 @@ using System.Web;
 using System.Web.Mvc;
 using StockManagement.Models.DatabaseContext;
 using StockManagement.Models.EntityModels;
+using StockManagementApp.VideModels;
 
 namespace StockManagementApp.Controllers
 {
@@ -39,6 +40,7 @@ namespace StockManagementApp.Controllers
         // GET: StockIns/Create
         public ActionResult Create()
         {
+            ViewBag.ProductId = new SelectList(db.Categories, "Id", "Name");
             return View();
         }
 
@@ -47,11 +49,11 @@ namespace StockManagementApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,Description,StockDate")] StockIn stockIn)
+        public ActionResult Create([Bind(Include = "Id,Description,StockInDetail,Qty")] StockInViewModel stockIn)
         {
             if (ModelState.IsValid)
             {
-                db.StockIns.Add(stockIn);
+               //db.StockIns.Add(stockIn);
                 db.SaveChanges();
                 return RedirectToAction("Index");
             }

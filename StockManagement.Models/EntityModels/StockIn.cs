@@ -11,10 +11,10 @@ namespace StockManagement.Models.EntityModels
     {
         public int Id { get; set; }
 
-        [DisplayName("StockIn Description")]
+        [DisplayName("Description")]
         public string Description { get; set; }
 
-        [DisplayName("StockIn Date")]
+        [DisplayName("Date")]
         public DateTime StockDate { get; set; }
 
         public List<StockInDetail> StockInDetails { get; set; }

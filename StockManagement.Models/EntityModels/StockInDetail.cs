@@ -6,12 +6,12 @@ namespace StockManagement.Models.EntityModels
     {
         public int Id { get; set; }
 
-        [DisplayName("StockIn Name")]
+        [DisplayName("Name")]
         public int StockInId { get; set; }
 
-        [DisplayName("Product Name")]
+        [DisplayName("Product")]
         public int ProductId { get; set; }
-        [DisplayName("StockIn Qty")]
+        [DisplayName("Qty")]
         public int Qty { get; set; }
 
         public StockIn StockIn { get; set; }
