@@ -50,19 +50,44 @@ namespace StockManagementApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "Id,StockInId,ProductId,Qty")] StockInDetail stockInDetail)
+        public ActionResult SaveOrder(string date, string description, StockInDetail[] stock)
         {
-            if (ModelState.IsValid)
+            string result = "Error! Order Is Not Complete!";
+            if (date != null && description != null && stock != null)
             {
-                db.StockInDetails.Add(stockInDetail);
-                db.SaveChanges();
-                return RedirectToAction("Index");
-            }
+                var cutomerId = Guid.NewGuid();
+                StockIn model = new StockIn();
+                model.Description = description;
+                model.StockDate = DateTime.Now;
+                db.StockIns.Add(model);
 
-            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", stockInDetail.ProductId);
-            ViewBag.StockInId = new SelectList(db.StockIns, "Id", "Description", stockInDetail.StockInId);
-            return View(stockInDetail);
+                foreach (var item in stock)
+                {
+                    var stockId = Guid.NewGuid();
+                    StockInDetail stockInDetail = new StockInDetail();
+                    stockInDetail.ProductId = item.ProductId;
+                    stockInDetail.StockInId = item.StockInId;
+                    stockInDetail.Qty = item.Qty;
+                    db.StockInDetails.Add(stockInDetail);
+                }
+                db.SaveChanges();
+                result = "Success! Order Is Complete!";
+            }
+            return Json(result, JsonRequestBehavior.AllowGet);
         }
+        //public ActionResult Create([Bind(Include = "Id,StockInId,ProductId,Qty")] StockInDetail stockInDetail)
+        //{
+        //    if (ModelState.IsValid)
+        //    {
+        //        db.StockInDetails.Add(stockInDetail);
+        //        db.SaveChanges();
+        //        return RedirectToAction("Index");
+        //    }
+
+        //    ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", stockInDetail.ProductId);
+        //    ViewBag.StockInId = new SelectList(db.StockIns, "Id", "Description", stockInDetail.StockInId);
+        //    return View(stockInDetail);
+        //}
 
         // GET: StockInDetails/Edit/5
         public ActionResult Edit(int? id)
