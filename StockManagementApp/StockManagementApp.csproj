@@ -98,18 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="bin\roslyn\csc.exe.config" />
-    <Content Include="bin\roslyn\csc.rsp" />
-    <Content Include="bin\roslyn\csi.rsp" />
-    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
-    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
-    <Content Include="bin\roslyn\vbc.exe.config" />
-    <Content Include="bin\roslyn\vbc.rsp" />
-    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
-    <Content Include="bin\StockManagementApp.dll.config" />
-    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
-    <Content Include="obj\Debug\StockManagementApp.csprojResolveAssemblyReference.cache" />
-    <None Include="Views\Home\About.cshtml" />
     <Content Include="AboutDeveloper\css\main.css" />
     <Content Include="AboutDeveloper\images\canva-blue-twitter-logo-social-media-icon-MAB0h_4HbU0.png" />
     <Content Include="AboutDeveloper\images\contact-bg.jpg" />
@@ -131,6 +119,18 @@
     <Content Include="AboutDeveloper\images\web-maintenance-logo.png" />
     <Content Include="AboutDeveloper\images\webdesign-logo.png" />
     <Content Include="AboutDeveloper\js\main.js" />
+    <Content Include="bin\roslyn\csc.exe.config" />
+    <Content Include="bin\roslyn\csc.rsp" />
+    <Content Include="bin\roslyn\csi.rsp" />
+    <Content Include="bin\roslyn\Microsoft.CSharp.Core.targets" />
+    <Content Include="bin\roslyn\Microsoft.VisualBasic.Core.targets" />
+    <Content Include="bin\roslyn\vbc.exe.config" />
+    <Content Include="bin\roslyn\vbc.rsp" />
+    <Content Include="bin\roslyn\VBCSCompiler.exe.config" />
+    <Content Include="bin\StockManagementApp.dll.config" />
+    <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
+    <Content Include="obj\Debug\StockManagementApp.csprojResolveAssemblyReference.cache" />
+    <None Include="Views\Home\About.cshtml" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />
@@ -361,9 +361,7 @@
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\StockInDetailsController.cs" />
-    <Compile Include="Controllers\StockInsController.cs" />
     <Compile Include="Controllers\StockOutDetailsController.cs" />
-    <Compile Include="Controllers\StockOutsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -371,7 +369,6 @@
     <Compile Include="obj\Debug\TemporaryGeneratedFile_5937a670-0e60-4077-877b-f7221da3dda1.cs" />
     <Compile Include="obj\Debug\TemporaryGeneratedFile_E7A71F73-0F8D-4B9B-B56E-8E70B10BC5D3.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VideModels\StockInViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\web.config" />
@@ -402,21 +399,11 @@
     <Content Include="Views\Products\Details.cshtml" />
     <Content Include="Views\Products\Edit.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
-    <Content Include="Views\StockIns\Create.cshtml" />
-    <Content Include="Views\StockIns\Delete.cshtml" />
-    <Content Include="Views\StockIns\Details.cshtml" />
-    <Content Include="Views\StockIns\Edit.cshtml" />
-    <Content Include="Views\StockIns\Index.cshtml" />
     <Content Include="Views\StockInDetails\Create.cshtml" />
     <Content Include="Views\StockInDetails\Delete.cshtml" />
     <Content Include="Views\StockInDetails\Details.cshtml" />
     <Content Include="Views\StockInDetails\Edit.cshtml" />
     <Content Include="Views\StockInDetails\Index.cshtml" />
-    <Content Include="Views\StockOuts\Create.cshtml" />
-    <Content Include="Views\StockOuts\Delete.cshtml" />
-    <Content Include="Views\StockOuts\Details.cshtml" />
-    <Content Include="Views\StockOuts\Edit.cshtml" />
-    <Content Include="Views\StockOuts\Index.cshtml" />
     <Content Include="Views\StockOutDetails\Create.cshtml" />
     <Content Include="Views\StockOutDetails\Delete.cshtml" />
     <Content Include="Views\StockOutDetails\Details.cshtml" />
@@ -438,6 +425,7 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
+    <Folder Include="VideModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockManagement.Models\StockManagement.Models.csproj">

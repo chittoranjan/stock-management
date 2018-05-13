@@ -16,8 +16,8 @@ namespace StockManagement.Models.EntityModels
 
         [DisplayName("Date")]
         public DateTime StockDate { get; set; }
+        public  List<StockInDetail> StockInDetails { get; set; }
 
-        public List<StockInDetail> StockInDetails { get; set; }
 
     }
 }

@@ -1,52 +1,93 @@
 ﻿@model StockManagement.Models.EntityModels.StockInDetail
 
 @{
-    ViewBag.Title = "Create StockInDetail";
+    ViewBag.Title = "Create Stock";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="wow fadeInDown">Create StockInDetail</h2>
+<h2 class="wow fadeInDown">Create Stock</h2>
 
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()
     <div class="wow fadeInDown">
-        @Html.ActionLink("Back to List", "Index", null, new { @class = "btn btn-info" })
+        @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-info"})
     </div>
-
+    
     <div class="form-horizontal">
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group wow fadeInDown">
-            @Html.LabelFor(model => model.StockInId, "StockInId", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StockIn.StockDate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("StockInId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.StockInId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.StockIn.StockDate, new { htmlAttributes = new { @class = "form-control", @Value = DateTime.Now.ToString("dd-MM-yyyy HH:mm:ss") } })
+                @Html.ValidationMessageFor(model => model.StockIn.StockDate, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group wow fadeInDown">
-            @Html.LabelFor(model => model.ProductId, "Product Name", htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.StockIn.Description, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.DropDownList("ProductId", null, htmlAttributes: new { @class = "form-control" })
-                @Html.ValidationMessageFor(model => model.ProductId, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.StockIn.Description, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.StockIn.Description, "", new { @class = "text-danger" })
+            </div>
+        </div>
+    </div>
+    <div class="form-horizontal">
+        <hr/>
+        @Html.ValidationSummary(true, "", new {@class = "text-danger"})
+        <div class="form-group wow fadeInDown">
+            @Html.LabelFor(model => model.StockInId, "Description", htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.DropDownList("StockInId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.StockInId, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group wow fadeInDown">
-            @Html.LabelFor(model => model.Qty, htmlAttributes: new { @class = "control-label col-md-2" })
+            @Html.LabelFor(model => model.ProductId, "Product Name", htmlAttributes: new {@class = "control-label col-md-2"})
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Qty, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Qty, "", new { @class = "text-danger" })
+                @Html.DropDownList("ProductId", null, htmlAttributes: new {@class = "form-control"})
+                @Html.ValidationMessageFor(model => model.ProductId, "", new {@class = "text-danger"})
+            </div>
+        </div>
+
+        <div class="form-group wow fadeInDown">
+            @Html.LabelFor(model => model.Qty, htmlAttributes: new {@class = "control-label col-md-2"})
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Qty, new {htmlAttributes = new {@class = "form-control"}})
+                @Html.ValidationMessageFor(model => model.Qty, "", new {@class = "text-danger"})
             </div>
         </div>
 
         <div class="form-group wow fadeInDown">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-warning" />
+                <input type="button" value="Add To List" class="btn btn-success"/>
+            </div>
+        </div>
+        <div class="form-group wow fadeInDown">
+            <div class="col-md-offset-2 col-md-10">
+                <table id="detailsTable" class="table table-bordered ">
+                    <thead>
+                    <tr>
+                        <th style="width: 50%">Description</th>
+                        <th style="width: 35%">Product Name</th>
+                        <th style="width: 15%">Quantity</th>
+                    </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+        </div>
+        <div class="form-group wow fadeInDown">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="reset" class="btn btn-danger" data-dismiss="modal" />&nbsp;
+                <input type="submit" value="Save" class="btn btn-warning" />
             </div>
         </div>
     </div>
-}
+    
+ }
 
 

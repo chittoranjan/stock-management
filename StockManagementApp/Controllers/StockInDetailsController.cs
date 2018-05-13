@@ -18,7 +18,7 @@ namespace StockManagementApp.Controllers
         // GET: StockInDetails
         public ActionResult Index()
         {
-            var stockInDetails = db.StockInDetails.Include(s => s.Product).Include(s => s.StockIn);
+            var stockInDetails = db.StockInDetails.Include(s => s.Product).Include(s => s.StockIn).Include(s=>s.Product.Category);
             return View(stockInDetails.ToList());
         }
 
