@@ -98,27 +98,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="AboutDeveloper\css\main.css" />
-    <Content Include="AboutDeveloper\images\canva-blue-twitter-logo-social-media-icon-MAB0h_4HbU0.png" />
-    <Content Include="AboutDeveloper\images\contact-bg.jpg" />
-    <Content Include="AboutDeveloper\images\cost-effective-logo.jpg" />
-    <Content Include="AboutDeveloper\images\cost-effective-logo1.jpg" />
-    <Content Include="AboutDeveloper\images\crs-logo.png" />
-    <Content Include="AboutDeveloper\images\crs-logo1.png" />
-    <Content Include="AboutDeveloper\images\cteative-logo.gif" />
-    <Content Include="AboutDeveloper\images\design-logo.png" />
-    <Content Include="AboutDeveloper\images\Domain-names-logo.jpg" />
-    <Content Include="AboutDeveloper\images\fb-logo.png" />
-    <Content Include="AboutDeveloper\images\gplogo.png" />
-    <Content Include="AboutDeveloper\images\home-bg.gif" />
-    <Content Include="AboutDeveloper\images\linkedin-logo.png" />
-    <Content Include="AboutDeveloper\images\maintanence.png" />
-    <Content Include="AboutDeveloper\images\security-logo.png" />
-    <Content Include="AboutDeveloper\images\twitter-logo.png" />
-    <Content Include="AboutDeveloper\images\web-hosting-logo.png" />
-    <Content Include="AboutDeveloper\images\web-maintenance-logo.png" />
-    <Content Include="AboutDeveloper\images\webdesign-logo.png" />
-    <Content Include="AboutDeveloper\js\main.js" />
     <Content Include="bin\roslyn\csc.exe.config" />
     <Content Include="bin\roslyn\csc.rsp" />
     <Content Include="bin\roslyn\csi.rsp" />
@@ -130,7 +109,6 @@
     <Content Include="bin\StockManagementApp.dll.config" />
     <Content Include="obj\Debug\DesignTimeResolveAssemblyReferencesInput.cache" />
     <Content Include="obj\Debug\StockManagementApp.csprojResolveAssemblyReference.cache" />
-    <None Include="Views\Home\About.cshtml" />
     <Content Include="bin\EntityFramework.dll" />
     <Content Include="bin\EntityFramework.SqlServer.dll" />
     <Content Include="bin\EntityFramework.SqlServer.xml" />

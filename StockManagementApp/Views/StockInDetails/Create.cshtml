@@ -99,20 +99,21 @@
                 $("#newOrderModal").modal();
                 
             }
-            var slNo = 0;
+            
             //Add Multiple Order.
+            var slNo = 0;
             $("#addToList").click(function (e) {
                 e.preventDefault();
                 
                 if ($.trim($("#productName").val()) == "" || $.trim($("#quantity").val()) == "")return;
                 slNo++;
                 var sl =slNo ,
-                    descriptions = $("#description").val(),
+                    description = $("#description").val(),
                     productName = $("#productName").val(),
                     quantity = $("#quantity").val(),
                     detailsTableBody = $("#detailsTable tbody");
 
-                var productItem = '<tr><td>'+sl+'</td><td>' + descriptions + '</td><td>' + productName + '</td><td>' + quantity + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
+                var productItem = '<tr><td>' + sl + '</td><td>' + description + '</td><td>' + productName + '</td><td>' + quantity + '</td><td><a data-itemId="0" href="#" class="deleteItem">Remove</a></td></tr>';
                 detailsTableBody.append(productItem);
                 clearItem();
             });
@@ -141,7 +142,7 @@
                     contentType: 'application/json; charset=utf-8',
                     dataType: 'json',
                     type: 'POST',
-                    url: "/StockInDetails/Create",
+                    url: "@Url.Action("Create","StockInDetails")",
                     data: data,
                     success: function (result) {
                         alert(result);
@@ -162,9 +163,10 @@
 
                 $.each($("#detailsTable tbody tr"), function () {
                     orderArr.push({
+                        description: $(this).find('td:eq(1)').html(),
                         productName: $(this).find('td:eq(2)').html(),
                         quantity: $(this).find('td:eq(3)').html()
-                       
+
                     });
                 });
 
