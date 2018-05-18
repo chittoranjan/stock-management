@@ -131,7 +131,7 @@
                 var $self = $(this);
                 if ($(this).attr('data-itemId') == "0") {
                     $(this).parents('tr').css("background-color", "#ff6347").fadeOut(800, function () {
-                        $(this).remove();
+                        $($self).remove();
                     });
                 }
             });

@@ -121,6 +121,16 @@ namespace StockManagementApp.Controllers
             return RedirectToAction("Index");
         }
 
+        public JsonResult GetByCategory(int? categoryId)
+        {
+            if (categoryId ==null)
+            {
+                return null;
+            }
+
+            var products = db.Products.Where(c => c.CategoryId == categoryId).ToList();
+            return Json(products, JsonRequestBehavior.AllowGet);
+        }
         protected override void Dispose(bool disposing)
         {
             if (disposing)

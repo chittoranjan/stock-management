@@ -330,6 +330,7 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\StockIn\stockin_create.js" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -338,6 +339,7 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\InventoriesController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
+    <Compile Include="Controllers\StockInController.cs" />
     <Compile Include="Controllers\StockInDetailsController.cs" />
     <Compile Include="Controllers\StockOutDetailsController.cs" />
     <Compile Include="Global.asax.cs">
@@ -392,6 +394,7 @@
     <Content Include="Views\Inventories\Details.cshtml" />
     <Content Include="Views\Inventories\Edit.cshtml" />
     <Content Include="Views\Inventories\Index.cshtml" />
+    <Content Include="Views\StockIn\StockIn.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -403,7 +406,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Models\" />
     <Folder Include="obj\Debug\TempPE\" />
-    <Folder Include="VideModels\" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\StockManagement.Models\StockManagement.Models.csproj">
