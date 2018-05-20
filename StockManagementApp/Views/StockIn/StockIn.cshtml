@@ -8,9 +8,16 @@
 }
 
 <h2 class="wow fadeInDown">Create Stock</h2>
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-info">
+        @Html.Raw(TempData["msg"])
+    </div>
+}
 @using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
+   
     <div class="wow fadeInDown">
         @Html.ActionLink("Back to List", "Index","StockInDetails", new { @class = "btn btn-info" })
     </div>

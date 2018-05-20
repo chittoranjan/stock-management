@@ -26,29 +26,39 @@ namespace StockManagementApp.Controllers
         [HttpPost]
         public ActionResult StockIn(StockInViewModel stockInViewModel)
         {
-            var stockIn=new StockIn();
-            stockIn.StockDate = stockInViewModel.StockDate;
-            stockIn.Description = stockInViewModel.Description;
-            db.StockIns.Add(stockIn);
-            db.SaveChanges();
-            var id = stockIn.Id;
-            List<StockInDetail>stockList=new List<StockInDetail>();
-            foreach (var ss in stockInViewModel.StockInDetails)
+            if (ModelState.IsValid)
             {
-                var stockDetails = new StockInDetail();
-                stockDetails.StockInId = id;
-                stockDetails.ProductId = ss.ProductId;
-                stockDetails.Qty = ss.Qty;
-                stockList.Add(stockDetails);
-               
+                var stockIn = new StockIn();
+                stockIn.StockDate = stockInViewModel.StockDate;
+                stockIn.Description = stockInViewModel.Description;
+                db.StockIns.Add(stockIn);
+                db.SaveChanges();
+                var id = stockIn.Id;
+                List<StockInDetail> stockList = new List<StockInDetail>();
+                foreach (var ss in stockInViewModel.StockInDetails)
+                {
+                    var stockDetails = new StockInDetail();
+                    stockDetails.StockInId = id;
+                    stockDetails.ProductId = ss.ProductId;
+                    stockDetails.Qty = ss.Qty;
+                    stockList.Add(stockDetails);
+
+                }
+                db.StockInDetails.AddRange(stockList);
+                var count = db.SaveChanges();
+                if (count > 0)
+                {
+                    ModelState.Clear();
+                    TempData["msg"] = "StockIn information has been successfully saved.";
+                    return RedirectToAction("Index", "StockInDetails", new { area = "" });
+                }
             }
-            db.StockInDetails.AddRange(stockList);
-            var count=db.SaveChanges();
-            if (count>0)
-            {
-                RedirectToAction("Index", "StockInDetails","StockInDetails");
-            }
-            return View();
+            
+            var model = new StockInViewModel();
+            model.Categories = db.Categories.ToList();
+            ViewBag.ProductDropDown = new SelectList(new[] { new SelectListItem() { Value = "", Text = "Select Product" } }, "Value", "Text");
+            TempData["msg"] = "StockIn information has been failed to save!";
+            return View(model);
         }
     }
 }

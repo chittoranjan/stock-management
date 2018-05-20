@@ -6,7 +6,12 @@
 }
 
 <h2 class="wow fadeInDown">Category List</h2>
-
+@if (TempData["msg"]!=null)
+{
+    <div class="alert alert-info">
+        @Html.Raw(TempData["msg"])
+    </div>
+}
 <p class="wow fadeInDown">
     @Html.ActionLink("Create New", "Create",null,new {@class=" btn btn-primary"})
 </p>
@@ -52,11 +57,12 @@
         }
         else
         {
-        <tr class="panel-body text-danger" >
-            <td >
-            <h3 > Data not found !</h3 >
-            </td >
+            <tr class="panel-body text-danger">
+                <td >
+                    <h3 > Data not found !</h3 >
+                </td >
             </tr>
+
         }
     }
 

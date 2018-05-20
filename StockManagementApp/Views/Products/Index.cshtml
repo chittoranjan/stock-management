@@ -6,7 +6,12 @@
 }
 
 <h2 class="wow fadeInDown">Product List</h2>
-
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-info">
+        @Html.Raw(TempData["msg"])
+    </div>
+}
 <p class="wow fadeInDown">
     @Html.ActionLink("Create New", "Create",null,new {@class="btn btn-warning"})
 </p>

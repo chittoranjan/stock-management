@@ -55,10 +55,12 @@ namespace StockManagementApp.Controllers
             {
                 db.Products.Add(product);
                 db.SaveChanges();
+                TempData["msg"] = "Product information has been successfully saved.";
                 return RedirectToAction("Index");
             }
 
             ViewBag.CategoryId = new SelectList(db.Categories, "Id", "Name", product.CategoryId);
+            TempData["msg"] = "Product information has been failed to save";
             return View(product);
         }
 

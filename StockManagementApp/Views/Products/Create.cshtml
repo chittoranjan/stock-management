@@ -6,7 +6,12 @@
 }
 
 <h2 class="wow fadeInDown">Create Product</h2>
-
+@if (TempData["msg"] != null)
+{
+    <div class="alert alert-info">
+        @Html.Raw(TempData["msg"])
+    </div>
+}
 @using (Html.BeginForm()) 
 {
     @Html.AntiForgeryToken()

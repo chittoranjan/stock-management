@@ -53,9 +53,10 @@ namespace StockManagementApp.Controllers
             {
                 db.Categories.Add(category);
                 db.SaveChanges();
+                TempData["msg"] = "Category information has been successfully saved";
                 return RedirectToAction("Index");
             }
-
+            TempData["msg"] = "Category information has been failed to save";
             return View(category);
         }
 
