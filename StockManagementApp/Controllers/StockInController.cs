@@ -4,6 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using AutoMapper;
 using StockManagement.Models.DatabaseContext;
 using StockManagement.Models.EntityModels;
 using StockManagement.Models.ViewModels;
@@ -28,25 +29,10 @@ namespace StockManagementApp.Controllers
         {
             if (ModelState.IsValid)
             {
-                var stockIn = new StockIn();
-                stockIn.StockDate = stockInViewModel.StockDate;
-                stockIn.Description = stockInViewModel.Description;
+                StockIn stockIn = Mapper.Map<StockIn>(stockInViewModel);   
                 db.StockIns.Add(stockIn);
-                db.SaveChanges();
-                var id = stockIn.Id;
-                List<StockInDetail> stockList = new List<StockInDetail>();
-                foreach (var ss in stockInViewModel.StockInDetails)
-                {
-                    var stockDetails = new StockInDetail();
-                    stockDetails.StockInId = id;
-                    stockDetails.ProductId = ss.ProductId;
-                    stockDetails.Qty = ss.Qty;
-                    stockList.Add(stockDetails);
-
-                }
-                db.StockInDetails.AddRange(stockList);
-                var count = db.SaveChanges();
-                if (count > 0)
+                
+                if (db.SaveChanges() > 0)
                 {
                     ModelState.Clear();
                     TempData["msg"] = "StockIn information has been successfully saved.";
