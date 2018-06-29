@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace StockManagement.Models.EntityModels
 {
     public class StockInDetail
     {
+        [Key]
         public int Id { get; set; }
 
         [DisplayName("Name")]
@@ -11,6 +13,7 @@ namespace StockManagement.Models.EntityModels
 
         [DisplayName("Product")]
         public int ProductId { get; set; }
+
         [DisplayName("Qty")]
         public int Qty { get; set; }
 

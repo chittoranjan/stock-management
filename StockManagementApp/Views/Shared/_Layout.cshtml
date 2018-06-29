@@ -53,7 +53,7 @@
                                         <span class="icon-bar"></span>
                                     </button>
                                     <!-- offcanvas-trigger-effects -->
-                                    <h1 class="logo"><a class="navbar-brand" href="#index.html"><img src="~/img/logo.png" alt=""></a></h1>
+                                    <h1 class="logo"><a class="navbar-brand" href="@Url.Action("Index","Home")"><img src="~/img/logo.png" alt=""></a></h1>
                                 </div>
                                 <!-- Collect the nav links, forms, and other content for toggling -->
                                 <div class="collapse navbar-collapse navbar-collapse">
@@ -77,8 +77,20 @@
                                             <div class="submenu-wrapper submenu-wrapper-topbottom">
                                                 <div class="submenu-inner  submenu-inner-topbottom">
                                                     <ul class="dropdown-menu">
-                                                        <li>@Html.ActionLink("Create Product", "Create", "Products", null, new { @class = "active" })</li>
-                                                        <li>@Html.ActionLink("Product List", "Index", "Products", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Create Product", "Create", "Products", null, new {@class = "active"})</li>
+                                                        <li>@Html.ActionLink("Product List", "Index", "Products", null, new {@class = "active"})</li>
+                                                    </ul>
+                                                </div><!-- /.submenu-inner -->
+                                            </div> <!-- /.submenu-wrapper -->
+                                        </li>
+                                        <li class="dropdown">
+                                            <a href="#">Party <b class="caret"></b></a>
+                                            <!-- submenu-wrapper -->
+                                            <div class="submenu-wrapper submenu-wrapper-topbottom">
+                                                <div class="submenu-inner  submenu-inner-topbottom">
+                                                    <ul class="dropdown-menu">
+                                                        <li>@Html.ActionLink("Create Party", "Create", "Parties", null, new { @class = "active" })</li>
+                                                        <li>@Html.ActionLink("Party List", "Index", "Parties", null, new { @class = "active" })</li>
                                                     </ul>
                                                 </div><!-- /.submenu-inner -->
                                             </div> <!-- /.submenu-wrapper -->
@@ -193,19 +205,12 @@
                 <div class="content-wrapper">
                 <section class="intro-wrapper">
                     <div class="row">
-                        <div class="col-lg-6 col-md-6" >
+                        @RenderBody()
+                        @*<div class="col-lg-6 col-md-6" >
                             @RenderBody()
-                            @*<h2 class="wow fadeInDown">Welcome to Primex</h2>
-                            <p class="wow fadeInDown">Objectively enable leading-edge infrastructures whereas tactical imperatives. Enthusiastically disintermediate adaptive systems.</p>
-                            <h3 class="wow fadeInDown">About Us</h3>
-                            <p class="wow fadeInDown">
-                                Assertively target turnkey technologies whereas covalent ROI. Distinctively grow viral mindshare rather than collaborative meta-services. Credibly initiate performance based internal or "organic" sources with <a href="#">performance based</a> infrastructures competently.
-                            </p>
-                            <h3 class="wow fadeInDown">Our Mission</h3>
-                            <p class="wow fadeInDown">Assertively target turnkey technologies whereas covalent ROI. Distinctively grow viral mindshare rather than collaborative meta-services. Credibly initiate performance based internal or "organic" sources with performance based infrastructures. Competently.</p>
-                            <a class="btn btn-primary wow fadeInDown" href="#" role="button">Read More</a>*@
+                            
                         </div>
-                        <div class="col-lg-6 col-md-6"></div>
+                        <div class="col-lg-6 col-md-6"></div>*@
                     </div><!-- /.row -->
                 </section><!-- /.intro-wrapper -->
 
@@ -674,40 +679,36 @@
                         <li>
                             <a href="#">Home</a>
                             <ul>
-                                <li class="active">@Html.ActionLink("Home", "Index", "Home", null, new { @class = "fa fa-home" })</li>
+                                <li class="active">@Html.ActionLink("Home", "Index", "Home",null, new { @class = "fa fa-home" })</li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">Product</a>
                             <ul>
-                                <li>@Html.ActionLink("Create Product", "Create", "Products", null, new { @class = "fa fa-life-ring" })</li>
-                                <li>@Html.ActionLink("Product List", "Index", "Products", null, new { @class = "fa fa-user" })</li>
+                                <li>@Html.ActionLink("Create Product", "Create", "Products",null, new { @class = "fa fa-life-ring" })</li>
+                                <li>@Html.ActionLink("Product List", "Index", "Products",null, new { @class = "fa fa-user" })</li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">StockIn</a>
                             <ul>
-                                <li>@Html.ActionLink("Create StockIn", "Create", "StockIns", null, new { @class = "fa fa-pencil-square-o" })</li>
-                                <li>@Html.ActionLink("StockIn List", "Index", "StockIns", null, new { @class = "fa fa-pencil" })</li>
-                                <li>@Html.ActionLink("Create StockInDetails", "Create", "StockInDetails", null, new { @class = "fa fa-pencil-square-o" })</li>
-                                <li>@Html.ActionLink("StockInDetails List", "Index", "StockInDetails", null, new { @class = "fa fa-puzzle-piece" })</li>
+                                <li>@Html.ActionLink("Create StockIn", "StockIn", "StockIn", null, new { @class = "fa fa-pencil-square-o" })</li>
+                                <li>@Html.ActionLink("StockIn List", "Index", "StockInDetails", null, new { @class = "fa fa-pencil" })</li>
                             </ul>
                         </li>
                         <li>
                             <a href="#">StockOut</a>
                             <ul>
-                                <li>@Html.ActionLink("Create StockOut", "Create", "StockOuts", null, new { @class = "fa fa-picture-o" })</li>
-                                <li>@Html.ActionLink("StockOut List", "Index", "StockOuts", null, new { @class = "fa fa-paper-plane-o" })</li>
-                                <li>@Html.ActionLink("Create StockOutDetails ", "Create", "StockOutDetails", null, new { @class = "fa fa-magic" })</li>
-                                <li>@Html.ActionLink("StockOutDetails List", "Index", "StockOutDetails", null, new { @class = "fa fa-magic" })</li>
+                                <li>@Html.ActionLink("Create StockOutDetails ", "Create", "StockOutDetails",null, new { @class = "fa fa-magic" })</li>
+                                <li>@Html.ActionLink("StockOutDetails List", "Index", "StockOutDetails",null, new { @class = "fa fa-magic" })</li>
                             </ul>
                         </li>
 
                         <li>
                             <a href="#">Inventory</a>
                             <ul>
-                                <li>@Html.ActionLink("Create Inventory", "Create", "Inventories", null, new { @class = "fa fa-briefcase" })</li>
-                                <li>@Html.ActionLink("Inventory List", "Index", "Inventories", null, new { @class = "fa fa-coffee" })</li>
+                                <li>@Html.ActionLink("Create Inventory", "Create", "Inventories",null, new { @class = "fa fa-briefcase" })</li>
+                                <li>@Html.ActionLink("Inventory List", "Index", "Inventories",null, new { @class = "fa fa-coffee" })</li>
                                 
                             </ul>
                         </li>

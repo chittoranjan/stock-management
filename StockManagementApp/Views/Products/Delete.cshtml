@@ -4,49 +4,51 @@
     ViewBag.Title = "Delete Product";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="col-lg-6 col-md-6">
+    <h2 class="wow fadeInDown">Delete Product</h2>
 
-<h2 class="wow fadeInDown">Delete Product</h2>
-
-<h3 class="text-danger wow fadeInDown">Are you sure you want to delete this?</h3>
-<div class="wow fadeInDown">
+    <h3 class="text-danger wow fadeInDown">Are you sure you want to delete this?</h3>
     <div class="wow fadeInDown">
-        @Html.ActionLink("Back to List", "Index",null, new {@class="btn btn-info"})
-    </div>
-    <hr/>
-    <dl class="dl-horizontal wow fadeInDown">
-        <dt>
-            @Html.DisplayNameFor(model => model.Category.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Category.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Name)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.Code)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
-
-    </dl>
-
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions wow fadeInDown">
-            <input type="submit" value="Delete" class="btn btn-danger"/>
-
+        <div class="wow fadeInDown">
+            @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-info"})
         </div>
-    }
+        <hr/>
+        <dl class="dl-horizontal wow fadeInDown">
+            <dt>
+                @Html.DisplayNameFor(model => model.Category.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Category.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Name)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
+
+            <dt>
+                @Html.DisplayNameFor(model => model.Code)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
+
+        </dl>
+
+        @using (Html.BeginForm())
+        {
+            @Html.AntiForgeryToken()
+
+            <div class="form-actions wow fadeInDown">
+                <input type="submit" value="Delete" class="btn btn-danger"/>
+
+            </div>
+        }
+    </div>
 </div>
+<div class="col-lg-6 col-md-6"></div>

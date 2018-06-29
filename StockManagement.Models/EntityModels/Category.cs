@@ -11,15 +11,16 @@ namespace StockManagement.Models.EntityModels
 {
     public class Category
     {
+        [Key]
         public int Id { get; set; }
 
-        //[Required(ErrorMessage = "Please write Category Name")]
-        [DisplayName("Category Name")]
+        [Required(ErrorMessage = "Please write Category Name!")]
+        [DisplayName("Category Name"),StringLength(250, ErrorMessage = "Name maximum 250 character")]
         public string Name { get; set; }
 
-        //[Required(ErrorMessage = "Please write a code 3-6 digits")]
+        [Required(ErrorMessage = "Please write a code 3-6 digits")]
         [DisplayName("Category Code")]
-        //[MinLength(3 , ErrorMessage = "Please write minimum 3 digits"),MaxLength(6, ErrorMessage = "Please write maximum 6 digits")]
+        [MinLength(3, ErrorMessage = "Please write minimum 3 digits!"), MaxLength(6, ErrorMessage = "Please write maximum 6 digits!")]
         public string Code { get; set; }
 
         public List<Product> Products { get; set; }

@@ -50,6 +50,7 @@
     <Compile Include="DatabaseContext\StockDBContext.cs" />
     <Compile Include="EntityModels\Category.cs" />
     <Compile Include="EntityModels\Inventory.cs" />
+    <Compile Include="EntityModels\Party.cs" />
     <Compile Include="EntityModels\Product.cs" />
     <Compile Include="EntityModels\StockIn.cs" />
     <Compile Include="EntityModels\StockInDetail.cs" />
@@ -58,6 +59,34 @@
     <Compile Include="Migrations\201805071353215_Inital.cs" />
     <Compile Include="Migrations\201805071353215_Inital.Designer.cs">
       <DependentUpon>201805071353215_Inital.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806081618026_required_field_added_in_create_model.cs" />
+    <Compile Include="Migrations\201806081618026_required_field_added_in_create_model.Designer.cs">
+      <DependentUpon>201806081618026_required_field_added_in_create_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806081648277_validaton_check_added_in_models.cs" />
+    <Compile Include="Migrations\201806081648277_validaton_check_added_in_models.Designer.cs">
+      <DependentUpon>201806081648277_validaton_check_added_in_models.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281108161_party_add.cs" />
+    <Compile Include="Migrations\201806281108161_party_add.Designer.cs">
+      <DependentUpon>201806281108161_party_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281119557_isDeleted_added.cs" />
+    <Compile Include="Migrations\201806281119557_isDeleted_added.Designer.cs">
+      <DependentUpon>201806281119557_isDeleted_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806281301082_sotckin_partyadded.cs" />
+    <Compile Include="Migrations\201806281301082_sotckin_partyadded.Designer.cs">
+      <DependentUpon>201806281301082_sotckin_partyadded.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806291505256_stockindetails_party_added.cs" />
+    <Compile Include="Migrations\201806291505256_stockindetails_party_added.Designer.cs">
+      <DependentUpon>201806291505256_stockindetails_party_added.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201806291637333_remove_party_from_stockindetails.cs" />
+    <Compile Include="Migrations\201806291637333_remove_party_from_stockindetails.Designer.cs">
+      <DependentUpon>201806291637333_remove_party_from_stockindetails.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -73,6 +102,27 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\201805071353215_Inital.resx">
       <DependentUpon>201805071353215_Inital.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806081618026_required_field_added_in_create_model.resx">
+      <DependentUpon>201806081618026_required_field_added_in_create_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806081648277_validaton_check_added_in_models.resx">
+      <DependentUpon>201806081648277_validaton_check_added_in_models.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281108161_party_add.resx">
+      <DependentUpon>201806281108161_party_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281119557_isDeleted_added.resx">
+      <DependentUpon>201806281119557_isDeleted_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806281301082_sotckin_partyadded.resx">
+      <DependentUpon>201806281301082_sotckin_partyadded.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291505256_stockindetails_party_added.resx">
+      <DependentUpon>201806291505256_stockindetails_party_added.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201806291637333_remove_party_from_stockindetails.resx">
+      <DependentUpon>201806291637333_remove_party_from_stockindetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

@@ -1,9 +1,11 @@
 ﻿using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 
 namespace StockManagement.Models.EntityModels
 {
     public class StockOutDetail
     {
+        [Key]
         public int Id { get; set; }
 
         [DisplayName("StockOut Name")]

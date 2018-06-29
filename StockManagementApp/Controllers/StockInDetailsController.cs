@@ -18,7 +18,7 @@ namespace StockManagementApp.Controllers
         // GET: StockInDetails
         public ActionResult Index()
         {
-            var stockInDetails = db.StockInDetails.Include(s => s.Product).Include(s => s.StockIn).Include(s=>s.Product.Category);
+            var stockInDetails = db.StockInDetails.Include(s => s.Product).Include(s => s.StockIn).Include(s=>s.StockIn.Party).Include(s=>s.Product.Category);
             return View(stockInDetails.ToList());
         }
 
@@ -50,44 +50,20 @@ namespace StockManagementApp.Controllers
         // more details see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult SaveOrder(string date, string description, StockInDetail[] stock)
+
+        public ActionResult Create([Bind(Include = "Id,StockInId,ProductId,Qty")] StockInDetail stockInDetail)
         {
-            string result = "Error! Order Is Not Complete!";
-            if (date != null && description != null && stock != null)
+            if (ModelState.IsValid)
             {
-                var cutomerId = Guid.NewGuid();
-                StockIn model = new StockIn();
-                model.Description = description;
-                model.StockDate = DateTime.Now;
-                db.StockIns.Add(model);
-
-                foreach (var item in stock)
-                {
-                    var stockId = Guid.NewGuid();
-                    StockInDetail stockInDetail = new StockInDetail();
-                    stockInDetail.ProductId = item.ProductId;
-                    stockInDetail.StockInId = item.StockInId;
-                    stockInDetail.Qty = item.Qty;
-                    db.StockInDetails.Add(stockInDetail);
-                }
+                db.StockInDetails.Add(stockInDetail);
                 db.SaveChanges();
-                result = "Success! Order Is Complete!";
+                return RedirectToAction("Index");
             }
-            return Json(result, JsonRequestBehavior.AllowGet);
-        }
-        //public ActionResult Create([Bind(Include = "Id,StockInId,ProductId,Qty")] StockInDetail stockInDetail)
-        //{
-        //    if (ModelState.IsValid)
-        //    {
-        //        db.StockInDetails.Add(stockInDetail);
-        //        db.SaveChanges();
-        //        return RedirectToAction("Index");
-        //    }
 
-        //    ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", stockInDetail.ProductId);
-        //    ViewBag.StockInId = new SelectList(db.StockIns, "Id", "Description", stockInDetail.StockInId);
-        //    return View(stockInDetail);
-        //}
+            ViewBag.ProductId = new SelectList(db.Products, "Id", "Name", stockInDetail.ProductId);
+            ViewBag.StockInId = new SelectList(db.StockIns, "Id", "Description", stockInDetail.StockInId);
+            return View(stockInDetail);
+        }
 
         // GET: StockInDetails/Edit/5
         public ActionResult Edit(int? id)

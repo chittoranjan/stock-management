@@ -4,31 +4,33 @@
     ViewBag.Title = "Category Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
+<div class="col-lg-6 col-md-6">
+    <h2 class="wow fadeInDown">Category Details</h2>
 
-<h2 class="wow fadeInDown">Category Details</h2>
+    <div class="wow fadeInDown">
+        <hr/>
+        <dl class="dl-horizontal wow fadeInDown">
+            <dt>
+                @Html.DisplayNameFor(model => model.Name) :
+            </dt>
 
-<div class="wow fadeInDown">
-    <hr />
-    <dl class="dl-horizontal wow fadeInDown">
-        <dt>
-            @Html.DisplayNameFor(model => model.Name) :
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Name)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Name)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.Code) :
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Code) :
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Code)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.Code)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p class="wow fadeInDown">
+        @Html.ActionLink("Edit", "Edit", new {id = Model.Id}, new {@class = "btn btn-warning"})
+        @Html.ActionLink("Back to List", "Index", null, new {@class = "btn btn-info"})
+    </p>
 </div>
-<p class="wow fadeInDown">
-    @Html.ActionLink("Edit", "Edit", new { id = Model.Id },new {@class="btn btn-warning"})
-    @Html.ActionLink("Back to List", "Index",null, new { @class = "btn btn-info" })
-</p>
+<div class="col-lg-6 col-md-6"></div>

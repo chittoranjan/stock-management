@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,6 +10,7 @@ namespace StockManagement.Models.EntityModels
 {
     public class StockOut
     {
+        [Key]
         public int Id { get; set; }
 
         [DisplayName("StockOut Description")]
