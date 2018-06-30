@@ -27,7 +27,6 @@ namespace StockManagement.Models.ViewModels
         public List<Party> Parties { get; set; }
 
         [NotMapped]
-        [Required(ErrorMessage = "Please select Category!")]
         public List<Category> Categories { get; set; }
         
         public  List<StockInDetail> StockInDetails { get; set; } 
